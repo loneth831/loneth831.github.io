@@ -1,0 +1,1281 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Loneth's personal portfolio showcasing projects in Data Science, Machine Learning, Artificial Intelligence, Software Engineering and Data Warehousing.">
+
+    <meta name="theme-color" content="#080d19">
+
+    <title>Loneth | Data Science & AI Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #080d19;
+            --surface: #101a2d;
+            --surface-light: #16233a;
+            --primary: #60a5fa;
+            --purple: #a78bfa;
+            --text: #f1f5f9;
+            --muted: #94a3b8;
+            --border: rgba(148,163,184,0.15);
+            --gradient: linear-gradient(120deg, #60a5fa, #a78bfa);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        .container {
+            width: min(1120px, 90%);
+            margin: auto;
+        }
+
+        
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(8,13,25,0.88);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-content {
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-github {
+            padding: 9px 17px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: white !important;
+        }
+
+        .menu-btn {
+            display: none;
+            background: transparent;
+            border: 0;
+            color: white;
+            font-size: 27px;
+            cursor: pointer;
+        }
+
+        
+
+        .hero {
+            min-height: 720px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 130px 0 80px;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 480px;
+            height: 480px;
+            background: rgba(59,130,246,0.12);
+            filter: blur(120px);
+            border-radius: 50%;
+            top: 80px;
+            right: -100px;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            animation: appear 1s ease;
+        }
+
+        .availability {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #86efac;
+            background: rgba(34,197,94,0.08);
+            border: 1px solid rgba(34,197,94,0.2);
+            border-radius: 30px;
+            padding: 7px 15px;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: #4ade80;
+            border-radius: 50%;
+            box-shadow: 0 0 12px #4ade80;
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(46px, 7vw, 76px);
+            line-height: 1.12;
+            letter-spacing: -3px;
+            margin-bottom: 20px;
+        }
+
+        .gradient-text {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-description {
+            color: var(--muted);
+            font-size: 17px;
+            max-width: 650px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 23px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: #08111e;
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(96,165,250,0.15);
+        }
+
+        .hero-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            margin-top: 45px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        
+
+        section {
+            padding: 100px 0;
+            scroll-margin-top: 75px;
+        }
+
+        .section-label {
+            color: var(--primary);
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(30px, 4vw, 42px);
+            letter-spacing: -1.5px;
+            margin-bottom: 15px;
+        }
+
+        .section-description {
+            color: var(--muted);
+            max-width: 650px;
+            margin-bottom: 45px;
+        }
+
+       
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .about-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 16px;
+        }
+
+        .about-item {
+            padding: 17px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .about-item:last-child {
+            border: none;
+        }
+
+        .about-item small {
+            color: var(--muted);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .about-item strong {
+            font-size: 15px;
+        }
+
+        
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 14px;
+            transition: 0.3s;
+        }
+
+        .skill-box:hover {
+            border-color: rgba(96,165,250,0.5);
+            transform: translateY(-5px);
+        }
+
+        .skill-icon {
+            font-size: 27px;
+            margin-bottom: 13px;
+        }
+
+        .skill-box h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 17px;
+            margin-bottom: 12px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tags span,
+        .tech-tags span {
+            background: rgba(96,165,250,0.09);
+            color: #93c5fd;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+
+        
+
+        .project-category {
+            margin-bottom: 65px;
+        }
+
+        .category-heading {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 23px;
+        }
+
+        .category-icon {
+            width: 45px;
+            height: 45px;
+            display: grid;
+            place-items: center;
+            background: rgba(96,165,250,0.1);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-size: 21px;
+        }
+
+        .category-heading h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 21px;
+        }
+
+        .category-heading p {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 25px;
+            transition: 0.35s;
+            min-height: 240px;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(96,165,250,0.5);
+            background: var(--surface-light);
+        }
+
+        .project-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .project-symbol {
+            font-size: 24px;
+        }
+
+        .project-link {
+            color: var(--primary);
+            font-size: 13px;
+        }
+
+        .project-card h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 19px;
+            margin-bottom: 9px;
+        }
+
+        .project-card p {
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .tech-tags span {
+            font-size: 11px;
+        }
+
+        
+
+        .education-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--primary);
+            border-radius: 12px;
+            padding: 28px;
+            max-width: 750px;
+        }
+
+        .education-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 20px;
+        }
+
+        .education-card p {
+            color: var(--muted);
+            margin-top: 7px;
+            font-size: 14px;
+        }
+
+        
+
+        .contact-box {
+            background: linear-gradient(
+                120deg,
+                rgba(37,99,235,0.15),
+                rgba(139,92,246,0.12)
+            );
+            border: 1px solid var(--border);
+            padding: 55px 30px;
+            text-align: center;
+            border-radius: 18px;
+        }
+
+        .contact-box h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: var(--muted);
+            margin-bottom: 25px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 13px;
+        }
+
+        
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 25px 0;
+            color: var(--muted);
+            font-size: 13px;
+            text-align: center;
+        }
+
+        
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        
+
+        @media(max-width: 800px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width: 650px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 76px;
+                left: 0;
+                width: 100%;
+                padding: 25px 5%;
+                background: #101a2d;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .hero {
+                min-height: 650px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .projects-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 75px 0;
+            }
+
+            .hero-info {
+                gap: 15px;
+            }
+
+            .contact-box h2 {
+                font-size: 27px;
+            }
+        }
+
+        @media(prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+<nav>
+    <div class="container nav-content">
+
+        <a href="#home" class="logo">
+            LONETH<span>.</span>
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+
+            <li>
+                <a class="nav-github"
+                   href="https://github.com/loneth831"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    GitHub ↗
+                </a>
+            </li>
+        </ul>
+
+        <button class="menu-btn"
+                id="menuBtn"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+                aria-controls="navLinks">
+            ☰
+        </button>
+
+    </div>
+</nav>
+
+
+
+
+<header class="hero" id="home">
+    <div class="container">
+
+        <div class="hero-content">
+
+            <div class="availability">
+                <span class="dot"></span>
+                Data Science Undergraduate
+            </div>
+
+            <h1>
+                Hi, I'm <span class="gradient-text">Loneth.</span>
+                <br>
+                Building with Data & Technology.
+            </h1>
+
+            <p class="hero-description">
+                I am passionate about Data Science, Machine Learning,
+                Artificial Intelligence and Software Engineering.
+                I enjoy transforming ideas into practical,
+                data-driven solutions.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#projects" class="btn btn-primary">
+                    Explore My Work ↗
+                </a>
+
+                <a href="https://github.com/loneth831"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-secondary">
+                    GitHub Profile ↗
+                </a>
+
+            </div>
+
+            <div class="hero-info">
+                <span>📍 Sri Lanka</span>
+                <span>💻 Data Science</span>
+                <span>🤖 AI & Machine Learning</span>
+            </div>
+
+        </div>
+
+    </div>
+</header>
+
+
+<main>
+
+
+
+<section id="about" class="reveal">
+    <div class="container">
+
+        <div class="section-label">Introduction</div>
+        <h2 class="section-title">About Me</h2>
+
+        <div class="about-grid">
+
+            <div class="about-text">
+
+                <p>
+                    I am a Data Science undergraduate with an interest
+                    in developing intelligent systems, analysing data
+                    and building software applications.
+                </p>
+
+                <p>
+                    My academic and project experience includes
+                    machine learning, predictive analytics,
+                    artificial intelligence, database systems
+                    and data warehousing.
+                </p>
+
+                <p>
+                    I enjoy exploring new technologies and applying
+                    my knowledge to solve practical problems through
+                    programming, data analysis and machine learning.
+                </p>
+
+            </div>
+
+            <div class="about-card">
+
+                <div class="about-item">
+                    <small>Field of Study</small>
+                    <strong>Data Science</strong>
+                </div>
+
+                <div class="about-item">
+                    <small>University</small>
+                    <strong>Sri Lanka Institute of Information Technology</strong>
+                </div>
+
+                <div class="about-item">
+                    <small>Areas of Interest</small>
+                    <strong>AI, Machine Learning & Data Engineering</strong>
+                </div>
+
+                <div class="about-item">
+                    <small>GitHub</small>
+                    <strong>github.com/loneth831</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+
+
+<section id="skills" class="reveal">
+    <div class="container">
+
+        <div class="section-label">My Expertise</div>
+        <h2 class="section-title">Technical Skills</h2>
+
+        <p class="section-description">
+            Technologies and tools I have worked with
+            through academic and personal projects.
+        </p>
+
+        <div class="skills-grid">
+
+            <div class="skill-box">
+                <div class="skill-icon">💻</div>
+                <h3>Programming Languages</h3>
+                <div class="skill-tags">
+                    <span>Python</span>
+                    <span>R</span>
+                    <span>Java</span>
+                    <span>SQL</span>
+                </div>
+            </div>
+
+            <div class="skill-box">
+                <div class="skill-icon">🤖</div>
+                <h3>AI & Machine Learning</h3>
+                <div class="skill-tags">
+                    <span>Machine Learning</span>
+                    <span>NLP</span>
+                    <span>LLMs</span>
+                    <span>RAG</span>
+                </div>
+            </div>
+
+            <div class="skill-box">
+                <div class="skill-icon">📊</div>
+                <h3>Data Science & Analytics</h3>
+                <div class="skill-tags">
+                    <span>Data Analysis</span>
+                    <span>Statistical Modelling</span>
+                    <span>Data Visualization</span>
+                </div>
+            </div>
+
+            <div class="skill-box">
+                <div class="skill-icon">🗄️</div>
+                <h3>Database & Warehousing</h3>
+                <div class="skill-tags">
+                    <span>SQL Server</span>
+                    <span>Data Warehousing</span>
+                    <span>ETL</span>
+                    <span>Dimensional Modelling</span>
+                </div>
+            </div>
+
+            <div class="skill-box">
+                <div class="skill-icon">📈</div>
+                <h3>Business Intelligence</h3>
+                <div class="skill-tags">
+                    <span>Power BI</span>
+                    <span>Data Reporting</span>
+                    <span>Dashboard Design</span>
+                </div>
+            </div>
+
+            <div class="skill-box">
+                <div class="skill-icon">⚙️</div>
+                <h3>Development Tools</h3>
+                <div class="skill-tags">
+                    <span>Git</span>
+                    <span>GitHub</span>
+                    <span>IntelliJ IDEA</span>
+                    <span>RStudio</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+
+
+<section id="projects" class="reveal">
+    <div class="container">
+
+        <div class="section-label">My Work</div>
+        <h2 class="section-title">Featured Projects</h2>
+
+        <p class="section-description">
+            A selection of projects demonstrating my work
+            across software development, artificial intelligence,
+            machine learning and data engineering.
+        </p>
+
+
+       
+
+        <div class="project-category">
+
+            <div class="category-heading">
+                <div class="category-icon">💻</div>
+                <div>
+                    <h3>Software Engineering & Database Systems</h3>
+                    <p>Application development and database-driven systems</p>
+                </div>
+            </div>
+
+            <div class="projects-grid">
+
+                <article class="project-card">
+                    <div class="project-top">
+                        <span class="project-symbol">🏨</span>
+                        <a class="project-link"
+                           href="https://github.com/loneth831/Hotel-Reservation-System"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            GitHub ↗
+                        </a>
+                    </div>
+
+                    <h4>Hotel Reservation Management</h4>
+
+                    <p>
+                        A hotel reservation management system
+                        designed to manage reservations and
+                        related hotel operations.
+                    </p>
+
+                    <div class="tech-tags">
+                        <span>Software Development</span>
+                        <span>Database Systems</span>
+                    </div>
+                </article>
+
+
+                <article class="project-card">
+                    <div class="project-top">
+                        <span class="project-symbol">🚗</span>
+                        <a class="project-link"
+                           href="https://github.com/loneth831/Vehicle-Parking-Management-System"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            GitHub ↗
+                        </a>
+                    </div>
+
+                    <h4>Vehicle Parking Management</h4>
+
+                    <p>
+                        A parking management application
+                        designed to manage vehicle parking
+                        operations and parking spaces.
+                    </p>
+
+                    <div class="tech-tags">
+                        <span>Software Development</span>
+                        <span>Database Systems</span>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+
+
+        
+
+        <div class="project-category">
+
+            <div class="category-heading">
+                <div class="category-icon">🧠</div>
+                <div>
+                    <h3>Machine Learning, Data Science & AI</h3>
+                    <p>Predictive modelling and intelligent applications</p>
+                </div>
+            </div>
+
+            <div class="projects-grid">
+
+                <article class="project-card">
+                    <div class="project-top">
+                        <span class="project-symbol">✈️</span>
+                        <a class="project-link"
+                           href="https://github.com/loneth831/Airline_price_prediction_model"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            GitHub ↗
+                        </a>
+                    </div>
+
+                    <h4>Airline Price Prediction</h4>
+
+                    <p>
+                        A machine learning project focused on
+                        predicting airline ticket prices
+                        using flight-related features.
+                    </p>
+
+                    <div class="tech-tags">
+                        <span>Python</span>
+                        <span>Machine Learning</span>
+                        <span>Data Analysis</span>
+                    </div>
+                </article>
+
+
+                <article class="project-card">
+                    <div class="project-top">
+                        <span class="project-symbol">🏥</span>
+                        <a class="project-link"
+                           href="https://github.com/loneth831/Healthcare-readmission-prediction"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            GitHub ↗
+                        </a>
+                    </div>
+
+                    <h4>Healthcare Readmission Prediction</h4>
+
+                    <p>
+                        A predictive analytics project exploring
+                        hospital readmission patterns and
+                        factors associated with readmission risk.
+                    </p>
+
+                    <div class="tech-tags">
+                        <span>Python</span>
+                        <span>Machine Learning</span>
+                        <span>Healthcare Analytics</span>
+                    </div>
+                </article>
+
+
+                <article class="project-card">
+                    <div class="project-top">
+                        <span class="project-symbol">📄</span>
+                        <a class="project-link"
+                           href="https://github.com/loneth831/AI-Powered-CV-Analyzer"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            GitHub ↗
+                        </a>
+                    </div>
+
+                    <h4>AI-Powered CV Analyzer</h4>
+
+                    <p>
+                        Developed an automated CV analysis system
+                        using OCR and NLP to extract candidate
+                        information and evaluate qualifications
+                        against job requirements.
+                    </p>
+
+                    <div class="tech-tags">
+                        <span>Python</span>
+                        <span>Java</span>
+                        <span>OCR</span>
+                        <span>NLP</span>
+                    </div>
+                </article>
+
+
+                <article class="project-card">
+                    <div class="project-top">
+                        <span class="project-symbol">🤖</span>
+                        <a class="project-link"
+                           href="https://github.com/loneth831/LLM-hallucination-detection"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            GitHub ↗
+                        </a>
+                    </div>
+
+                    <h4>LLM Hallucination Detection</h4>
+
+                    <p>
+                        A project focused on detecting potentially
+                        inaccurate or unsupported information
+                        generated by large language models.
+                    </p>
+
+                    <div class="tech-tags">
+                        <span>Python</span>
+                        <span>LLMs</span>
+                        <span>AI</span>
+                    </div>
+                </article>
+
+
+                <article class="project-card">
+                    <div class="project-top">
+                        <span class="project-symbol">🔍</span>
+                        <a class="project-link"
+                           href="https://github.com/loneth831/RAG-Evaluation-Framework"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            GitHub ↗
+                        </a>
+                    </div>
+
+                    <h4>RAG Evaluation Framework</h4>
+
+                    <p>
+                        A framework designed to evaluate
+                        retrieval-augmented generation systems
+                        and assess their response quality.
+                    </p>
+
+                    <div class="tech-tags">
+                        <span>Python</span>
+                        <span>RAG</span>
+                        <span>LLMs</span>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+
+
+        
+
+        <div class="project-category">
+
+            <div class="category-heading">
+                <div class="category-icon">📊</div>
+                <div>
+                    <h3>Data Engineering, Warehousing & BI</h3>
+                    <p>Data integration, warehouse design and analytics</p>
+                </div>
+            </div>
+
+            <div class="projects-grid">
+
+                <article class="project-card">
+                    <div class="project-top">
+                        <span class="project-symbol">🏥</span>
+                        <a class="project-link"
+                           href="https://github.com/loneth831/Datawarehouse-project"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            GitHub ↗
+                        </a>
+                    </div>
+
+                    <h4>Healthcare Data Warehouse & Power BI</h4>
+
+                    <p>
+                        Designed a healthcare data warehouse
+                        and interactive Power BI dashboards
+                        to analyse patient encounters,
+                        readmission patterns and healthcare trends.
+                    </p>
+
+                    <div class="tech-tags">
+                        <span>SQL Server</span>
+                        <span>Power BI</span>
+                        <span>ETL</span>
+                        <span>Data Warehousing</span>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+
+
+        <div style="text-align:center; margin-top:35px;">
+
+            <a href="https://github.com/loneth831"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn btn-secondary">
+                Explore All GitHub Repositories ↗
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+
+
+
+<section id="contact" class="reveal">
+    <div class="container">
+
+        <div class="contact-box">
+
+            <div class="section-label">Get In Touch</div>
+
+            <h2>Let's Connect.</h2>
+
+            <p>
+                Interested in collaborating, discussing technology
+                or exploring internship opportunities?
+                Feel free to get in touch.
+            </p>
+
+            <div class="contact-links">
+
+                <a href="mailto:nihinduloneth@gmail.com"
+                   class="btn btn-primary">
+                    ✉ Email Me
+                </a>
+
+                <a href="https://github.com/loneth831"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-secondary">
+                    GitHub ↗
+                </a>
+
+                <a href="https://www.linkedin.com/in/nihindu-loneth/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-secondary">
+                    LinkedIn ↗
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+
+
+
+<footer>
+    <div class="container">
+        <p>
+            © <span id="year"></span> Loneth.
+            Designed & Built with HTML, CSS and JavaScript.
+        </p>
+    </div>
+</footer>
+
+
+<script>
+
+    
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+
+        const isOpen = navLinks.classList.toggle("active");
+
+        menuBtn.setAttribute("aria-expanded", isOpen);
+        menuBtn.textContent = isOpen ? "×" : "☰";
+
+    });
+
+    
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            navLinks.classList.remove("active");
+            menuBtn.setAttribute("aria-expanded", "false");
+            menuBtn.textContent = "☰";
+
+        });
+
+    });
+
+    
+
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("visible");
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    }, {
+        threshold: 0.12
+    });
+
+    document.querySelectorAll(".reveal").forEach(element => {
+        observer.observe(element);
+    });
+
+    
+
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
